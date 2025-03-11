@@ -1,54 +1,35 @@
-# React + TypeScript + Vite
+# KML Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KML Viewer is a web application designed to visualize KML (Keyhole Markup Language) files on an interactive map. The application leverages modern web technologies to provide a user-friendly interface for uploading, parsing, and displaying KML data, including points, lines, and polygons. The app also includes geolocation functionality to show the user's current location on the map.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Upload and Parse KML Files**: Users can upload KML files, which are then parsed to extract geographical data.
+- **Interactive Map**: The application uses `react-leaflet` to render an interactive map with OpenStreetMap tiles.
+- **Dynamic Center Calculation**: The map dynamically centers based on the average coordinates of the provided KML data.
+- **Geolocation**: Users can click a button to obtain their current location using the `navigator.geolocation` API. A marker is placed on the map at the user's location, and the map re-centers to this location.
+- **Responsive Design**: The application is designed to be responsive, ensuring it looks good on different screen sizes.
+- **User Interface Enhancements**: The UI includes a gradient background, rounded corners, padding, and shadows to enhance visual appeal. Success and error messages are displayed using `react-hot-toast`.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **react-leaflet**: A React wrapper for Leaflet, an open-source JavaScript library for mobile-friendly interactive maps.
+- **react-router-dom**: A collection of navigational components for React applications.
+- **react-hot-toast**: A React library for displaying notifications.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Node.js and npm installed on your machine.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/kml-viewer.git
+   cd kml-viewer
+   ```
