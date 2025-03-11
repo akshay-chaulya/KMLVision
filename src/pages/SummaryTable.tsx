@@ -3,7 +3,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import Button from "../components/ui/button";
 import { useEffect } from "react";
 
-interface ISummary {
+export interface ISummary {
   summary: { [key: string]: number };
 }
 

@@ -6,7 +6,7 @@ import Layout from "./layout/Layout";
 import PageNotFaound from "./pages/PageNotFound";
 import { useState } from "react";
 import { IParseResult } from "./components/FileUpload";
-import SummaryTable from "./pages/SummaryTable";
+import SummaryTable, { ISummary } from "./pages/SummaryTable";
 
 function App() {
   const [data, setData] = useState<IParseResult>({
@@ -22,7 +22,7 @@ function App() {
             <Route index element={<Home data={data} setData={setData} />} />
             <Route
               path="/summary"
-              element={<SummaryTable summary={data.summaryData} />}
+              element={<SummaryTable summary={data.summaryData as ISummary} />}
             />
             <Route path="/map" element={<Map mapData={data.parsedData} />} />
           </Route>
