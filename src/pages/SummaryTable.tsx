@@ -3,7 +3,11 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import Button from "../components/ui/button";
 import { useEffect } from "react";
 
-const SummaryTable = ({ summary }: { summary: any }) => {
+interface ISummary {
+  summary: { [key: string]: number };
+}
+
+const SummaryTable = ({ summary }: { summary: ISummary }) => {
   const navigate = useNavigate();
 
   useEffect(() => {

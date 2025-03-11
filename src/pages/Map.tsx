@@ -111,31 +111,33 @@ const Map = ({ mapData }: { mapData: any }) => {
           >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-            {mapData.map((item, index) => {
-              const coords = parseCoordinates(item.coordinates);
+            {mapData.map(
+              (item: { name: string; coordinates: string }, index: number) => {
+                const coords = parseCoordinates(item.coordinates);
 
-              if (coords.length === 1) {
-                return (
-                  <Marker key={index} position={coords[0]}>
-                    <Popup>{item.name}</Popup>
-                  </Marker>
-                );
-              } else if (coords.length > 1 && item.name.includes("Line")) {
-                return (
-                  <Polyline key={index} positions={coords} color="blue">
-                    <Popup>{item.name}</Popup>
-                  </Polyline>
-                );
-              } else if (coords.length > 1 && item.name.includes("Polygon")) {
-                return (
-                  <Polygon key={index} positions={coords} color="red">
-                    <Popup>{item.name}</Popup>
-                  </Polygon>
-                );
-              } else {
-                return null;
+                if (coords.length === 1) {
+                  return (
+                    <Marker key={index} position={coords[0]}>
+                      <Popup>{item.name}</Popup>
+                    </Marker>
+                  );
+                } else if (coords.length > 1 && item.name.includes("Line")) {
+                  return (
+                    <Polyline key={index} positions={coords} color="blue">
+                      <Popup>{item.name}</Popup>
+                    </Polyline>
+                  );
+                } else if (coords.length > 1 && item.name.includes("Polygon")) {
+                  return (
+                    <Polygon key={index} positions={coords} color="red">
+                      <Popup>{item.name}</Popup>
+                    </Polygon>
+                  );
+                } else {
+                  return null;
+                }
               }
-            })}
+            )}
 
             {userLocation && (
               <>
